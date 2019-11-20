@@ -28,8 +28,10 @@ steps:
     cd devolutions-crypto
     cd devolutionscrypto
 
+    npm -v
+
     npm update
-    
+
     wasm-pack test --safari --headless
 
   displayName: 'Run a one-line script'
