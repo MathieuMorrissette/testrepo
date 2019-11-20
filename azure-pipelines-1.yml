@@ -28,7 +28,7 @@ steps:
     cd devolutions-crypto
     cd devolutionscrypto
 
-    wasm-pack test --safari --headless
+    wasm-pack test --safari
 
   displayName: 'Run a one-line script'
 
