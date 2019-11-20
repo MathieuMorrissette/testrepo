@@ -14,7 +14,7 @@ steps:
     
 - script: |
     safaridriver --version
-    safaridriver --enable
+    sudo safaridriver --enable
 
     set -e
     curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable
