@@ -16,6 +16,7 @@ steps:
     
 - script: |
     safaridriver --version
+    safaridriver --enable
 
     set -e
     curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable
@@ -28,6 +29,8 @@ steps:
 
     cd devolutions-crypto
     cd devolutionscrypto
+
+    safaridriver --enable
 
     wasm-pack test --safari --headless
 
