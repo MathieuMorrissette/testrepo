@@ -10,6 +10,7 @@ trigger:
 
 stages:
 - stage: A
+  dependsOn: []
   jobs:
   - job: A1
     pool:
@@ -26,6 +27,7 @@ stages:
           echo sleep 20
 
 - stage: B
+  dependsOn: []
   jobs:
   - job: B1
     pool:
