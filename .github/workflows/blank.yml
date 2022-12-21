@@ -33,6 +33,10 @@ jobs:
         shell: bash
         run: echo "no" | /Users/runner/Library/Android/sdk/tools/bin/avdmanager create avd --force -n test_64 -k "system-images;android-33;google_apis;x86_64" 
 
+      - name: Installing SDK Android-33 x86_64
+        shell: bash
+        run: sdkmanager --install "system-images;android-33;google_apis;x86_64"
+
       - name: Starting emulator
         working-directory: /Users/runner/Library/Android/sdk/tools/
         shell: bash
