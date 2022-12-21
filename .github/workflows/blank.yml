@@ -22,20 +22,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
-      
-      - name: Setup gradle
-        uses: gradle/gradle-build-action@v2
-        
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it        
       - name: Installing SDK Android-33 x86_64
         shell: bash
-        run: sdkmanager --install "system-images;android-33;google_apis;x86_64"
+        run: /Users/runner/Library/Android/sdk/tools/bin/sdkmanager --install "system-images;android-33;google_apis;x86_64"
         
       - name: Creating Android device
         shell: bash
-        run: echo "no" | avdmanager create avd -n test_emulator -k "system-images;android-33;google_apis;x86_64" 
+        run: echo "no" | /Users/runner/Library/Android/sdk/tools/bin/avdmanager create avd -n test_emulator -k "system-images;android-33;google_apis;x86_64" 
 
       - name: Starting emulator
         working-directory: /Users/runner/Library/Android/sdk/tools/
