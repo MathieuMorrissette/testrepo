@@ -26,4 +26,21 @@ jobs:
       - name: Installing SDK Android-33 x86_64
         shell: bash
         run: /Users/runner/Library/Android/sdk/tools/bin/sdkmanager "system-images;android-33;google_apis;x86_64"
+        
+      - name: Creating Android device
+        shell: bash
+        run: echo "no" | /Users/runner/Library/Android/sdk/tools/bin/avdmanager create avd --force -n test_64 -k "system-images;android-33;google_apis;x86_64" 
+
+      - name: Starting emulator
+        working-directory: /Users/runner/Library/Android/sdk/tools/
+        shell: bash
+        run: emulator @test_64 &  
+
+      - name: Waiting for emulator to boot
+        shell: bash
+        run: adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'  
+      
+      - name: Done
+        shell: bash
+        run: echo "Done booting"
       
