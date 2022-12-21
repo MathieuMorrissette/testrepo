@@ -29,13 +29,15 @@ jobs:
       - name: Setup gradle
         uses: gradle/gradle-build-action@v2
         
+      - name: Installing SDK Android-33 x86_64
+        shell: bash
+        run: sdkmanager --install "system-images;android-33;google_apis;x86_64"
+        
       - name: Creating Android device
         shell: bash
         run: echo "no" | /Users/runner/Library/Android/sdk/tools/bin/avdmanager create avd --force -n test_64 -k "system-images;android-33;google_apis;x86_64" 
 
-      - name: Installing SDK Android-33 x86_64
-        shell: bash
-        run: sdkmanager --install "system-images;android-33;google_apis;x86_64"
+
 
       - name: Starting emulator
         working-directory: /Users/runner/Library/Android/sdk/tools/
