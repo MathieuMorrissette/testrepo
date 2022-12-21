@@ -23,7 +23,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Installing SDK Android-29 x86_64
+      - name: Installing SDK Android-33 x86_64
         shell: bash
-        run: /Users/runner/Library/Android/sdk/tools/bin/sdkmanager "system-images;android-29;google_apis;x86_64"
+        run: /Users/runner/Library/Android/sdk/tools/bin/sdkmanager "system-images;android-33;google_apis;x86_64"
       
