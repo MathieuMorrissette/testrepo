@@ -37,6 +37,7 @@ jobs:
         run: emulator @test_emulator &  
 
       - name: Waiting for emulator to boot
+        timeout-minutes: 1
         shell: bash
         run: adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'  
       
