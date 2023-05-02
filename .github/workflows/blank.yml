@@ -25,6 +25,10 @@ jobs:
       - name: dir
         shell: bash
         run: ls /Library/Frameworks/Xamarin.Mac.framework/Versions
+        
+      - name: dir2
+        shell: bash
+        run: ls /Library/Frameworks/Mono.framework/Versions
     
     
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it        
